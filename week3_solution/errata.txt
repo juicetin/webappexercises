@@ -1,0 +1,11 @@
+There are two typos in the given SurveySrc
+1. In SurveyForm.java class definition
+	the following statement in doGet method
+		RequestDispatcher view = request.getRequestDispatcher("/surveyScriptlet.jsp");
+	should change to
+		RequestDispatcher view = request.getRequestDispatcher("/survey.jsp");
+1. In Survey.java class definition
+	The class annotation @WebServlet("/survey")
+	should change to @WebServlet("/Survey")
+	The url pattern in the class annotation should match the url pattern in the form action in survey.jsp 
+		<form method = "POST" action="Survey">
