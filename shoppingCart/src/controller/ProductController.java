@@ -40,18 +40,20 @@ public class ProductController {
 		return "product";
 	}
 	
-	// this is the method for inserting a new product or updating an existing product
+	// this is the method for inserting a new product or updating an existing prouct
+	
 	@RequestMapping(value="/save", method = RequestMethod.POST)
 	public String save(@Valid @ModelAttribute("product") Product product, BindingResult result){
 		
 		if (result.hasErrors()) {
 	        return "product";
 		}
-		// add your code here to save a new product or update the existing product
+		// add your code here to save a new produce or update the existing product
 		// a new product will have an initial id of -1
-		product.setTitle(result.getFieldValue("title").toString());
 		product.setDescription(result.getFieldValue("description").toString());
 		product.setPrice(Double.parseDouble(result.getFieldValue("price").toString()));
+		product.setTitle(result.getFieldValue("title").toString());
+		
 		if (product.getProductId() == -1) {
 			pdao.addProduct(product);
 		} else {
@@ -66,9 +68,8 @@ public class ProductController {
 	@RequestMapping("/edit/{productId}")
 	public String edit(@PathVariable int productId, Model model){
 		//add your code here to find a product based on its id
-		Product product = pdao.getProductById(productId);
 		//and put it in the model
-		model.addAttribute(product);
+		model.addAttribute(pdao.getProductById(productId));
 		return "product";
 	}
 	
