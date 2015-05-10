@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/style_new.css"/>"  media="screen" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
 <script type="text/javascript">
    $(document).ready(function(){
 	$(".add").click(function(e){
@@ -15,6 +16,18 @@
 	});
    })
 </script>
+
+<script type="text/javascript">
+   $(document).ready(function(){
+	$(".remove").click(function(e){
+		e.preventDefault(); 
+		$("#cart").load($(this).attr("href"));
+	});
+   })
+</script>
+
+</script>
+
 <title>Catalogue page</title>
 </head>
 <body>
@@ -52,6 +65,7 @@
                <td>${product.price}</td>
                 <td>
                 <a href="${pageContext.request.contextPath}/cartsAjax/add/${product.productId}" class="add">add</a>
+                <a href="${pageContext.request.contextPath}/cartsAjax/remove/${product.productId}" class="remove">remove</a>
                 </td>
            </tr>
 

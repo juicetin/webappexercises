@@ -47,4 +47,11 @@ public class CartAjaxController {
 		return "cart_partial";
 	}
 	
+	@RequestMapping("/remove/{productId}")
+	public String remove(@PathVariable int productId, Model model, @ModelAttribute("cart") Cart cart) {
+		Product p = pdao.getProductById(productId);
+		cart.removeItem(p);		
+		return "cart_partial";
+	}
+	
 }

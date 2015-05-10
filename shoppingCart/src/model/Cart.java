@@ -17,6 +17,15 @@ public class Cart {
 			ci.increaseQuantity();
 		}
 	}
+	
+	public void removeItem(Product p) {
+		int productId = p.getProductId();
+		CartItem ci = carts.get(productId);
+		if (ci != null) {
+			ci.decreaseQuantity();
+		}
+		
+	}
 
 	
 	public Collection<CartItem> getItems() {
