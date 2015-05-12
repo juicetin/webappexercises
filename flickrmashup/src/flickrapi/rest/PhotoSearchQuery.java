@@ -32,7 +32,7 @@ public class PhotoSearchQuery {
 			
 			String callUrlStr = Constants.REST_ENDPOINT
 					+"?method="
-					+"flickr.photos.search"
+					+Constants.METHOD
 					+"&format=rest"
 					+"&per_page="
 					+500
