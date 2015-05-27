@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="wsimport">
+
+	<target name="wsgen" >
+		<exec executable="/usr/lib/jvm/java-8-openjdk/bin/wsgen">
+			<arg line="-cp ./build/classes -keep -s ./src -d ./build/classes webServices.ProductServices"/>
+		</exec>
+	</target>
+
+	<target name="wsimport">
+		<exec executable="/usr/lib/jvm/java-8-openjdk/bin/wsimport">
+			<arg line="-keep -s ./src -p webServices.test -d ./build/classes 
+				http://localhost:8080/shoppingCart/soap/productServices?WSDL" />
+		</exec>
+	</target>
+</project>
+
