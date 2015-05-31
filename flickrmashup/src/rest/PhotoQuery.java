@@ -43,8 +43,8 @@ public class PhotoQuery {
 			System.out.println("The titles returned are: ");
 			NodeList nl = response.getElementsByTagName("photo");
 			for (int i = 0; i < nl.getLength(); i ++){
-				System.out.println(nl.item(i).
-						getAttributes().getNamedItem("title").getTextContent());
+				System.out.println(nl.item(i).getAttributes().getNamedItem("title").getTextContent());
+				System.out.println(nl.item(i).getAttributes().getNamedItem("tags").getTextContent() + "\n");
 			}
 			urlConnection.disconnect();
 		}catch (Exception e){
