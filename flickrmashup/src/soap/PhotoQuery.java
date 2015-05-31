@@ -1,7 +1,6 @@
-package flickrapi.soap;
+package soap;
 import  javax.xml.soap.*;
-
-import flickrapi.commons.Constants;
+import 	commons.*;
 /**
  * This showcase the request for flickr panda service using SOAP protocol
  * @author zhouy

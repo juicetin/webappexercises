@@ -1,4 +1,4 @@
-package flickrapi.rest;
+package rest;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,7 +11,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
-import flickrapi.commons.Constants;
+import commons.*;
 
 /**
  * This showcase the request for flickr panda service using REST style
@@ -22,8 +22,16 @@ public class PhotoQuery {
 	
 	public void call(){		
 		try{
-			String callUrlStr = Constants.REST_ENDPOINT+"?method="+Constants.METHOD+
-			"&format=rest"+"&per_page="+Constants.DEFAULT_NUMBER+"&api_key="+Constants.API_KEY;
+			String callUrlStr = Constants.REST_ENDPOINT+"?method=" +
+								Constants.METHOD +
+								Constants.EXTRAS +
+								Constants.TAGS +
+								"&format=rest"+"&per_page=" + 
+								Constants.DEFAULT_NUMBER + 
+								"&api_key=" + 
+								Constants.API_KEY;
+			System.out.println(callUrlStr);
+			
 			URL callUrl = new URL(callUrlStr);			
 			HttpURLConnection urlConnection = (HttpURLConnection)callUrl.openConnection();
 			InputStream urlStream = urlConnection.getInputStream();
